@@ -125,23 +125,24 @@ class ImageSizeScreenState extends State<ImageSizeScreen> {
             value: isSwitched,
             onChanged: toggleSwitch,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              FloatingActionButton(
-                onPressed: incrementImageSize,
-                tooltip: 'Increase',
-                child: const Icon(Icons.add),
-              ),
-              FloatingActionButton(
-                onPressed: decrementImageSize,
-                tooltip: 'Decrease',
-                child: const Icon(Icons.remove),
-              ),
-            ],
-          )
         ],
       )),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          FloatingActionButton(
+            onPressed: decrementImageSize,
+            tooltip: 'Decrement',
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 10), // Adds spacing between the buttons
+          FloatingActionButton(
+            onPressed: incrementImageSize,
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+        ],
+      ),
     );
   }
 }
